@@ -20,13 +20,25 @@ function getByLocation(beer, location) {
 }
 
 function getByBeer(beer) {
-  return cts
-    .search(cts.andQuery([cts.collectionQuery('inventory'), cts.jsonPropertyValueQuery('beer', beer)]))
-    .toArray()
-    .reduce((prev, curr) => prev + curr.root.available.valueOf(), 0);
+  return cts.doc(`/inventory/beer/${beer}.json`).root.available.valueOf();
+}
+
+function setInventory(beer, location, available) {
+  xdmp.documentInsert(
+    `/inventory/${beer}-${location}.json`,
+    {
+      beer: beer,
+      branch: location,
+      available: available
+    },
+    {
+      collections: ['inventory']
+    }
+  );
 }
 
 module.exports = {
   getByLocation,
-  getByBeer
+  getByBeer,
+  setInventory
 };

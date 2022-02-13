@@ -1,0 +1,21 @@
+{
+  "name": "beer-on-create",
+  "description": "Dynamically create aggregate beer documents",
+  "event": {
+    "data-event": {
+      "collection-scope": {
+        "uri": "inventory"
+      },
+      "document-content": {
+        "update-kind": "create"
+      },
+      "when": "post-commit"
+    }
+  },
+  "module": "/trigger/inventory/create-inventory.xqy",
+  "module-db": "aggregation-modules",
+  "module-root": "/",
+  "enabled": true,
+  "recursive": false,
+  "task-priority": "normal"
+}
