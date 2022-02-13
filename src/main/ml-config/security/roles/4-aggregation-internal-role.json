@@ -1,0 +1,5 @@
+{
+  "role-name" : "aggregation-internal",
+  "description" : "Internal role used for amping",
+  "role" : [ "aggregation-writer" ]
+}

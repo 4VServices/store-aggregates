@@ -1,0 +1,5 @@
+{
+  "user-name" : "aggregation-reader",
+  "password" : "aggregation-reader",
+  "role" : [ "aggregation-reader" ]
+}
